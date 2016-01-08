@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1452258424 source:c:\users\marko\documents\projekti\marketx\src\korisnik.cpp
+	"Korisnik.h"
+
+1452258979 c:\users\marko\documents\projekti\marketx\include\korisnik.h
+	<iostream>
+	<string>
+	<fstream>
+
+1452263813 source:c:\users\marko\documents\projekti\marketx\main.cpp
+	"Administrator.h"
+	"Radnik.h"
+
+1452263908 c:\users\marko\documents\projekti\marketx\include\administrator.h
+	"Korisnik.h"
+	"utility.h"
+
+1452260489 c:\users\marko\documents\projekti\marketx\include\radnik.h
+	"Korisnik.h"
+
+1452268148 source:c:\users\marko\documents\projekti\marketx\src\administrator.cpp
+	"Administrator.h"
+
+1452260489 source:c:\users\marko\documents\projekti\marketx\src\radnik.cpp
+	"Radnik.h"
+
+1452263610 source:c:\users\marko\documents\projekti\marketx\utility.cpp
+	"utility.h"
+
+1452263177 c:\users\marko\documents\projekti\marketx\utility.h
+	<iostream>
+	<string>
+	<fstream>
+
+1452268148 c:\users\marko\documents\projekti\marketx\include\utility.h
+	<iostream>
+	<string>
+	<fstream>
+
+1452268676 source:c:\users\marko\documents\projekti\marketx\src\utility.cpp
+	"utility.h"
+
