@@ -40,3 +40,296 @@
 1452268676 source:c:\users\marko\documents\projekti\marketx\src\utility.cpp
 	"utility.h"
 
+1452384633 source:c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-master\src\administrator.cpp
+	"Administrator.h"
+	"Radnik.h"
+
+1452379163 c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-master\include\administrator.h
+	"Korisnik.h"
+	"utility.h"
+
+1452382716 c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-master\include\korisnik.h
+	<iostream>
+	<iomanip>
+	<string>
+	<fstream>
+
+1452378724 c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-master\include\utility.h
+	<iostream>
+	<string>
+	<fstream>
+
+1452382716 source:c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-master\main.cpp
+	"Administrator.h"
+	"Radnik.h"
+
+1452378038 c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-master\include\radnik.h
+	"Korisnik.h"
+	"utility.h"
+
+1452383340 source:c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-master\src\korisnik.cpp
+	"Korisnik.h"
+	"Administrator.h"
+	"Radnik.h"
+
+1452380910 source:c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-master\src\radnik.cpp
+	"Radnik.h"
+
+1452378724 source:c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-master\src\utility.cpp
+	"utility.h"
+
+1452382716 source:c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-masterv1\main.cpp
+	"Administrator.h"
+	"Radnik.h"
+
+1452432144 c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-masterv1\include\administrator.h
+	"Korisnik.h"
+	"utility.h"
+	"Radnik.h"
+
+1452433383 c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-masterv1\include\korisnik.h
+	<iostream>
+	<iomanip>
+	<string>
+	<fstream>
+	<list>
+
+1452432713 c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-masterv1\include\utility.h
+	<iostream>
+	<string>
+	<fstream>
+	<list>
+
+1452432144 c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-masterv1\include\radnik.h
+	"Korisnik.h"
+	"utility.h"
+
+1452433196 source:c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-masterv1\src\administrator.cpp
+	"Administrator.h"
+	"Radnik.h"
+	"Lookup.h"
+
+1452433383 source:c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-masterv1\src\korisnik.cpp
+	"Korisnik.h"
+	"Administrator.h"
+	"Radnik.h"
+
+1452432144 source:c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-masterv1\src\radnik.cpp
+	"Radnik.h"
+
+1452432713 source:c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-masterv1\src\utility.cpp
+	"utility.h"
+
+1452432026 source:c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-masterv1\lookup.cpp
+	"Lookup.h"
+
+1452432026 c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-masterv1\lookup.h
+	<iostream>
+	<fstream>
+
+1452433429 c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-masterv1\include\lookup.h
+	<iostream>
+	<fstream>
+
+1452433487 source:c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-masterv1\src\lookup.cpp
+	"Lookup.h"
+
+1452382718 source:f:\marketx-masterv1\main.cpp
+	"Administrator.h"
+	"Radnik.h"
+
+1452516454 f:\marketx-masterv1\include\administrator.h
+	"Korisnik.h"
+	"utility.h"
+	"Radnik.h"
+
+1452516908 f:\marketx-masterv1\include\korisnik.h
+	<iostream>
+	<iomanip>
+	<string>
+	<fstream>
+	<list>
+
+1452432714 f:\marketx-masterv1\include\utility.h
+	<iostream>
+	<string>
+	<fstream>
+	<list>
+
+1452516482 f:\marketx-masterv1\include\radnik.h
+	"Korisnik.h"
+	"utility.h"
+
+1452516640 source:f:\marketx-masterv1\src\administrator.cpp
+	"Administrator.h"
+	"Radnik.h"
+	"Lookup.h"
+
+1452433430 f:\marketx-masterv1\include\lookup.h
+	<iostream>
+	<fstream>
+
+1452515850 source:f:\marketx-masterv1\src\korisnik.cpp
+	"Korisnik.h"
+	"Administrator.h"
+	"Radnik.h"
+
+1452433488 source:f:\marketx-masterv1\src\lookup.cpp
+	"Lookup.h"
+
+1452432146 source:f:\marketx-masterv1\src\radnik.cpp
+	"Radnik.h"
+
+1452432714 source:f:\marketx-masterv1\src\utility.cpp
+	"utility.h"
+
+1452553464 source:c:\documents and settings\korisnika\desktop\marketx-masterv1\main.cpp
+	"Administrator.h"
+	"Radnik.h"
+
+1452516454 c:\documents and settings\korisnika\desktop\marketx-masterv1\include\administrator.h
+	"Korisnik.h"
+	"utility.h"
+	"Radnik.h"
+
+1452554717 c:\documents and settings\korisnika\desktop\marketx-masterv1\include\korisnik.h
+	<iostream>
+	<iomanip>
+	<string>
+	<fstream>
+	<list>
+	"utility.h"
+
+1452553924 c:\documents and settings\korisnika\desktop\marketx-masterv1\include\utility.h
+	<iostream>
+	<string>
+	<fstream>
+	<list>
+
+1452516482 c:\documents and settings\korisnika\desktop\marketx-masterv1\include\radnik.h
+	"Korisnik.h"
+	"utility.h"
+
+1452555569 source:c:\documents and settings\korisnika\desktop\marketx-masterv1\src\administrator.cpp
+	"Administrator.h"
+	"Radnik.h"
+	"Lookup.h"
+
+1452433430 c:\documents and settings\korisnika\desktop\marketx-masterv1\include\lookup.h
+	<iostream>
+	<fstream>
+
+1452556134 source:c:\documents and settings\korisnika\desktop\marketx-masterv1\src\korisnik.cpp
+	"Korisnik.h"
+	"Administrator.h"
+	"Radnik.h"
+	<cstdlib>
+
+1452433488 source:c:\documents and settings\korisnika\desktop\marketx-masterv1\src\lookup.cpp
+	"Lookup.h"
+
+1452554798 source:c:\documents and settings\korisnika\desktop\marketx-masterv1\src\radnik.cpp
+	"Radnik.h"
+
+1452550989 source:c:\documents and settings\korisnika\desktop\marketx-masterv1\src\utility.cpp
+	"utility.h"
+
+1452553466 source:c:\users\zm\desktop\marketx-masterv2\main.cpp
+	"Administrator.h"
+	"Radnik.h"
+
+1452516454 c:\users\zm\desktop\marketx-masterv2\include\administrator.h
+	"Korisnik.h"
+	"utility.h"
+	"Radnik.h"
+
+1452603451 c:\users\zm\desktop\marketx-masterv2\include\korisnik.h
+	<iostream>
+	<iomanip>
+	<string>
+	<fstream>
+	<list>
+	"utility.h"
+
+1452553926 c:\users\zm\desktop\marketx-masterv2\include\utility.h
+	<iostream>
+	<string>
+	<fstream>
+	<list>
+
+1452516482 c:\users\zm\desktop\marketx-masterv2\include\radnik.h
+	"Korisnik.h"
+	"utility.h"
+
+1452603068 source:c:\users\zm\desktop\marketx-masterv2\src\administrator.cpp
+	"Administrator.h"
+	"Radnik.h"
+	"Lookup.h"
+
+1452433430 c:\users\zm\desktop\marketx-masterv2\include\lookup.h
+	<iostream>
+	<fstream>
+
+1452601032 source:c:\users\zm\desktop\marketx-masterv2\src\korisnik.cpp
+	"Korisnik.h"
+	"Administrator.h"
+	"Radnik.h"
+	<cstdlib>
+
+1452433488 source:c:\users\zm\desktop\marketx-masterv2\src\lookup.cpp
+	"Lookup.h"
+
+1452554800 source:c:\users\zm\desktop\marketx-masterv2\src\radnik.cpp
+	"Radnik.h"
+
+1452550990 source:c:\users\zm\desktop\marketx-masterv2\src\utility.cpp
+	"utility.h"
+
+1452553466 source:c:\users\marko\desktop\marketx-masterv#\main.cpp
+	"Administrator.h"
+	"Radnik.h"
+
+1452516454 c:\users\marko\desktop\marketx-masterv#\include\administrator.h
+	"Korisnik.h"
+	"utility.h"
+	"Radnik.h"
+
+1452603452 c:\users\marko\desktop\marketx-masterv#\include\korisnik.h
+	<iostream>
+	<iomanip>
+	<string>
+	<fstream>
+	<list>
+	"utility.h"
+
+1452553926 c:\users\marko\desktop\marketx-masterv#\include\utility.h
+	<iostream>
+	<string>
+	<fstream>
+	<list>
+
+1452516482 c:\users\marko\desktop\marketx-masterv#\include\radnik.h
+	"Korisnik.h"
+	"utility.h"
+
+1452603070 source:c:\users\marko\desktop\marketx-masterv#\src\administrator.cpp
+	"Administrator.h"
+	"Radnik.h"
+	"Lookup.h"
+
+1452433430 c:\users\marko\desktop\marketx-masterv#\include\lookup.h
+	<iostream>
+	<fstream>
+
+1452601034 source:c:\users\marko\desktop\marketx-masterv#\src\korisnik.cpp
+	"Korisnik.h"
+	"Administrator.h"
+	"Radnik.h"
+	<cstdlib>
+
+1452554800 source:c:\users\marko\desktop\marketx-masterv#\src\radnik.cpp
+	"Radnik.h"
+
+1452550990 source:c:\users\marko\desktop\marketx-masterv#\src\utility.cpp
+	"utility.h"
+

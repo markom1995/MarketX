@@ -5,17 +5,15 @@ using namespace std;
 
 int main()
 {
-    char buffer1[50]={0};
-    char buffer2[20]={0};
-    ifstream in;
-    Administrator ad;
-    ad.makeProfile();
-    in.open("login.dat");
-    if(in)
+
+    int a;
+    Korisnik *k = nullptr;
+    do
     {
-        in.read(buffer1,50);
-        in.read(buffer2,20);
-        cout<<buffer1<<endl<<buffer2;
-    }
-    in.close();
+        if((a=showLoginMenu(&k))==1)
+            k->showMenu();
+    } while(a!=0);
+    delete k;
+    return 0;
 }
+

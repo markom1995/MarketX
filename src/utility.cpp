@@ -1,21 +1,44 @@
 #include "utility.h"
 
-bool searchLogin(const std::string& name , std::string key)
+int getIdFromFile(const std::string& fileName)
 {
-    std::ifstream src;
-    src.open(name,std::ios::in|std::ios::binary);
-    char buffer[50];
-    if(src)
+    int id;
+    std::fstream src;
+    src.open(fileName , std::ios::in | std::ios::binary);
+    if(!src.is_open())
     {
-        while(src.tellg()!=-1)
+        src.open(fileName , std::ios::out | std::ios::binary);
+        if(src.is_open())
         {
-            src.read(buffer,50);
-        if(key == buffer)
-            return true;
-        src.seekg(20,std::ios::cur);
+            src.close();
+            return 1;
         }
-        src.close();
+        else
+            return 0;
     }
-    return false;
+    else
+    {
+        src.read((char*)&id , sizeof(int));
+        src.close();
+            return id;
+    }
 }
+
+bool setIdToFile(const std::string& fileName, int id)
+{
+    std::ofstream dest;
+    dest.open(fileName , std::ios::out | std::ios::binary);
+    if(dest.is_open())
+    {
+        dest.write((char*)&id , sizeof(int));
+        dest.close();
+        return true;
+    }
+    else
+        return false;
+}
+
+
+
+
 
