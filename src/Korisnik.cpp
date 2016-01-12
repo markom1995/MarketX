@@ -1,6 +1,7 @@
 #include "Korisnik.h"
 #include "Administrator.h"
 #include "Radnik.h"
+#include "Proizvod.h"
 #include <cstdlib>
 
 Korisnik::Korisnik(int id , std::string password , std::string name , std::string last ) :
@@ -153,6 +154,7 @@ int showLoginMenu(Korisnik** k)
     std::cout<<std::setw(58)<<"Izaberite jednu od ponudjenih opcija"<<std::endl<<std::endl;
     std::cout<<std::setw(49)<<"[1] - Administrator"<<std::endl;
     std::cout<<std::setw(42)<<"[2] - Radnik"<<std::endl;
+    std::cout<<std::setw(53)<<"[3] - Pregled proizvoda"<<std::endl;
     std::cout<<std::setw(40)<<"[0] - Kraj"<<std::endl<<std::endl;
     std::cin>>c;
 
@@ -169,6 +171,13 @@ int showLoginMenu(Korisnik** k)
         if((*k)->login("radnikData.dat"))
             return 1;
         return 2;
+    }
+    else if(c=='3')
+    {
+        std::list<Proizvod> myList;
+        *k=new Radnik;
+        (*k)->getList(myList,"articleData.dat");
+        (*k)->viewData(myList);
     }
     else
         return 0;

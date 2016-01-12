@@ -1,4 +1,6 @@
 #include "Radnik.h"
+#include "Proizvod.h"
+#include "Kupac.h"
 
 Radnik::Radnik(int id , std::string password , std::string name , std::string last) :
     Korisnik::Korisnik(id , password , name , last) {}
@@ -19,11 +21,27 @@ void Radnik::showMenu()
     char c;
     do
     {
-        std::cout<<"Dobrodosli "<<name<<" "<<last<<std::endl<<"Izaberite neku od ponudjenih opcija"<<std::endl;
-        std::cout<<"Pregled sopstvenog naloga - 1"<<std::endl<<"Odjava sa sistema - 0"<<std::endl;
+        std::string welcome = "*** Dobrodosli " + name + " " + last + " ***";
+        int w = (welcome.length())/2 + 40;
+        std::cout<<std::endl<<std::setw(w)<<welcome<<std::endl<<std::endl<<std::endl;
+        std::cout<<std::setw(57)<<"Izaberite neku od ponudjenih opcija"<<std::endl<<std::endl;
+        std::cout<<std::setw(49)<<"[1] - Upravljanje proizvodima"<<std::endl;
+        std::cout<<std::setw(45)<<"[2] - Upravljanje kupcima"<<std::endl;
+        std::cout<<std::setw(42)<<"[3] - Izdavanje racuna"<<std::endl;
+        std::cout<<std::setw(43)<<"[0] - Odjava sa sistema"<<std::endl<<std::endl;
         std::cin>>c;
         if(c=='1')
-            std::cout<<*this;
+        {
+            std::list<Proizvod> myList;
+            getList(myList,"articleData.dat");
+            showEditMenu(myList,"articleData.dat");
+        }
+        else if(c=='2')
+        {
+            std::list<Kupac> myList;
+            getList(myList,"kupacData.dat");
+            showEditMenu(myList,"kupacData.dat");
+        }
         else
             std::cout<<"Prijatan dan!"<<std::endl;
     } while(c!='0');
