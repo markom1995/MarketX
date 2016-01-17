@@ -67,3 +67,34 @@ std::ostream& operator<<(std::ostream& out , const Proizvod& src)
     out<<std::setw(20)<<src.name<<" "<<std::setw(17)<<src.amount<<" "<<std::setw(17)<<src.jc;
     return out;
 }
+
+void Proizvod::modify()
+{
+    char c;
+    do
+    {
+        std::cout<<"Izaberite jednu od ponudjenih opcija"<<std::endl<<std::endl;
+        std::cout<<"[1] - Izmjena imena"<<std::endl;
+        std::cout<<"[2] - Izmjena kolicine"<<std::endl;
+        std::cout<<"[3] - Izmjena Jedinicne cijene"<<std::endl;
+        std::cout<<"[0] - Kraj"<<std::endl;
+        std::cin>>c;
+        if(c=='1')
+        {
+            std::cout<<"Novo ime: ";
+            std::cin>>name;
+        }
+        else if(c=='2')
+        {
+            std::cout<<"Nova kolicina: ";
+            std::cin>>amount;
+        }
+        else if(c=='3')
+        {
+            std::cout<<"Nova jedinicna cijena: ";
+            std::cin>>jc;
+        }
+        else if(c!='0')
+            std::cout<<"Nepoznata opcija!";
+    } while(c!='0');
+}

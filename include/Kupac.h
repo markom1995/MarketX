@@ -17,7 +17,7 @@ class Kupac
 
         int getId() const;
         void setMe(int);
-        void modify() {};
+        void modify();
 
         void writeToFile(std::ofstream& ) const;
         bool readFromFile(std::ifstream& );

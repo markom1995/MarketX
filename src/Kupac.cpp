@@ -65,3 +65,28 @@ std::ostream& operator<<(std::ostream& out , const Kupac& src)
     out<<std::setw(20)<<src.last<<" "<<std::setw(20)<<src.name;
     return out;
 }
+
+void Kupac::modify()
+{
+    char c;
+    do
+    {
+        std::cout<<"Izaberite jednu od ponudjenih opcija"<<std::endl<<std::endl;
+        std::cout<<"[1] - Izmjena imena"<<std::endl;
+        std::cout<<"[2] - Izmjena prezimena"<<std::endl;
+        std::cout<<"[0] - Kraj"<<std::endl;
+        std::cin>>c;
+        if(c=='1')
+        {
+            std::cout<<"Novo ime: ";
+            std::cin>>name;
+        }
+        else if(c=='2')
+        {
+            std::cout<<"Novo prezime: ";
+            std::cin>>last;
+        }
+        else if(c!='0')
+            std::cout<<"Nepoznata opcija!";
+    } while(c!='0');
+}

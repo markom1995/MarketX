@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1452627427 source:c:\users\marko\documents\projekti\marketx\src\korisnik.cpp
+1453032564 source:c:\users\marko\documents\projekti\marketx\src\korisnik.cpp
 	"Korisnik.h"
 	"Administrator.h"
 	"Radnik.h"
 	"Proizvod.h"
 	<cstdlib>
 
-1452603452 c:\users\marko\documents\projekti\marketx\include\korisnik.h
+1453033238 c:\users\marko\documents\projekti\marketx\include\korisnik.h
 	<iostream>
 	<iomanip>
 	<string>
@@ -14,26 +14,25 @@
 	<list>
 	"utility.h"
 
-1452620846 source:c:\users\marko\documents\projekti\marketx\main.cpp
+1453032692 source:c:\users\marko\documents\projekti\marketx\main.cpp
 	"Administrator.h"
 	"Radnik.h"
 	"Proizvod.h"
 
-1452516454 c:\users\marko\documents\projekti\marketx\include\administrator.h
+1452989786 c:\users\marko\documents\projekti\marketx\include\administrator.h
 	"Korisnik.h"
 	"utility.h"
 	"Radnik.h"
 
-1452516482 c:\users\marko\documents\projekti\marketx\include\radnik.h
+1452989826 c:\users\marko\documents\projekti\marketx\include\radnik.h
 	"Korisnik.h"
 	"utility.h"
 
-1452603070 source:c:\users\marko\documents\projekti\marketx\src\administrator.cpp
+1452989786 source:c:\users\marko\documents\projekti\marketx\src\administrator.cpp
 	"Administrator.h"
 	"Radnik.h"
-	"Lookup.h"
 
-1452624436 source:c:\users\marko\documents\projekti\marketx\src\radnik.cpp
+1452989826 source:c:\users\marko\documents\projekti\marketx\src\radnik.cpp
 	"Radnik.h"
 	"Proizvod.h"
 	"Kupac.h"
@@ -46,13 +45,13 @@
 	<string>
 	<fstream>
 
-1452553926 c:\users\marko\documents\projekti\marketx\include\utility.h
+1453033238 c:\users\marko\documents\projekti\marketx\include\utility.h
 	<iostream>
 	<string>
 	<fstream>
 	<list>
 
-1452550990 source:c:\users\marko\documents\projekti\marketx\src\utility.cpp
+1453033238 source:c:\users\marko\documents\projekti\marketx\src\utility.cpp
 	"utility.h"
 
 1452384633 source:c:\documents and settings\korisnika\desktop\etf\ii godina\osi\projektni zadatak\implementacija\marketx-master\src\administrator.cpp
@@ -348,11 +347,11 @@
 1452550990 source:c:\users\marko\desktop\marketx-masterv#\src\utility.cpp
 	"utility.h"
 
-1452620632 source:c:\users\marko\documents\projekti\marketx\src\proizvod.cpp
+1453035671 source:c:\users\marko\documents\projekti\marketx\src\proizvod.cpp
 	"Proizvod.h"
 	<cstdlib>
 
-1452623567 c:\users\marko\documents\projekti\marketx\include\proizvod.h
+1453035684 c:\users\marko\documents\projekti\marketx\include\proizvod.h
 	<iostream>
 	<iomanip>
 	<string>
@@ -360,11 +359,11 @@
 	<list>
 	"utility.h"
 
-1452626604 source:c:\users\marko\documents\projekti\marketx\src\kupac.cpp
+1453035737 source:c:\users\marko\documents\projekti\marketx\src\kupac.cpp
 	"Kupac.h"
 	<cstdlib>
 
-1452625963 c:\users\marko\documents\projekti\marketx\include\kupac.h
+1453035737 c:\users\marko\documents\projekti\marketx\include\kupac.h
 	<iostream>
 	<iomanip>
 	<string>
