@@ -4,8 +4,6 @@
 Kupac::Kupac(int id , std::string name , std::string last) :
     id(id), name(name) , last(last) {}
 
-Kupac::~Kupac() {}
-
 void Kupac::writeToFile(std::ofstream& dest) const
 {
     if(dest.is_open())

@@ -7,12 +7,11 @@
 class Radnik : public Korisnik
 {
     friend std::ostream& operator<<(std::ostream& out , const Radnik& src);
+
     public:
         Radnik(int=0 , std::string="?" , std::string="?" , std::string="?");
-        bool newData() {} ;
-        void addNew() {} ;
-        virtual ~Radnik();
-        void login();
+        virtual ~Radnik() {};
+
         virtual void showMenu();
     protected:
     private:

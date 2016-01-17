@@ -14,7 +14,6 @@ int main()
         if((a=showLoginMenu(&k))==1)
             k->showMenu();
     } while(a!=0);
-    delete k;
     return 0;
 }
 

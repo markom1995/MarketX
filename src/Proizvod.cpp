@@ -4,8 +4,6 @@
 Proizvod::Proizvod(int id , std::string name , double amount , double jc) :
     id(id) , name(name) , amount(amount) , jc(jc) {}
 
-Proizvod::~Proizvod() {}
-
 void Proizvod::writeToFile(std::ofstream& dest) const
 {
     if(dest.is_open())

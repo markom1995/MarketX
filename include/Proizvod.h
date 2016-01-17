@@ -11,11 +11,14 @@
 class Proizvod
 {
     friend std::ostream& operator<<(std::ostream& out , const Proizvod& src);
+
     public:
         Proizvod(int=0 , std::string="?" , double=0 , double=0);
-        virtual ~Proizvod();
+        virtual ~Proizvod() {};
 
         int getId() const;
+        void setMe(int);
+        void modify() {};
 
         void writeToFile(std::ofstream& ) const;
         bool readFromFile(std::ifstream& );
@@ -23,7 +26,6 @@ class Proizvod
         void header() const;
         void footer() const;
 
-        void setMe(int);
         bool operator<(const Proizvod& other) const;
 
     protected:
