@@ -2,22 +2,10 @@
 #include "Proizvod.h"
 #include "Kupac.h"
 #include "Racun.h"
-#include "Korisnik.h"
 
 Radnik::Radnik(int id , std::string password , std::string name , std::string last) :
     Korisnik::Korisnik(id , password , name , last) {}
 
-Radnik::~Radnik() {}
-
-void Radnik::login() {}
-
-std::ostream& operator<<(std::ostream& out , const Radnik& src)
-{
-    out<<std::setfill('0')<<std::setw(5)<<src.id<<" ";
-    std::cout.fill(' ');
-    out<<std::setw(20)<<src.last<<" "<<std::setw(20)<<src.name<<" "<<std::setw(20)<<src.password;
-    return out;
-}
 void Radnik::showMenu()
 {
     char c;
@@ -50,19 +38,38 @@ void Radnik::showMenu()
             std::list<Kupac> myListk;
             getList(myListk,"kupacData.dat");
             r.check(myListk);
-           std::list<Proizvod> myList;
-           r.getInfo(id,password,name,last);
+            std::list<Proizvod> myList;
+            r.getInfo(id,password,name,last);
             getList(myList,"articleData.dat");
             r.createBill(myList,"articleData.dat");
-
-
         }
-
+        else if(c=='0')
+            std::cout<<std::endl<<std::setw(50)<<"*** Prijatan dan ***"<<std::endl;
         else
-            std::cout<<"Prijatan dan!"<<std::endl;
+            std::cout<<std::setw(48)<<"Nepoznata opcija!"<<std::endl<<std::endl;
     } while(c!='0');
 }
 
+std::ostream& operator<<(std::ostream& out , const Radnik& src)
+{
+    out<<"      "<<std::setfill('0')<<std::setw(5)<<src.id<<" ";
+    std::cout.fill(' ');
+    out<<std::setw(20)<<src.last<<" "<<std::setw(20)<<src.name<<" "<<std::setw(20)<<src.password;
+    return out;
+}
+
+bool Radnik::modify()
+{
+    do
+    {
+    std::cout<<std::endl;
+    header();
+    std::cout<<*this<<std::endl;
+    footer();
+    std::cout<<std::endl;
+    }while(Korisnik::modify());
+    return true;
+}
 void Radnik::printName(std::ostream& out) const
 {
     out<<name<<" "<<last;

@@ -1,7 +1,6 @@
 #include "Administrator.h"
 #include "Radnik.h"
 #include "Proizvod.h"
-#include <time.h>
 
 using namespace std;
 
@@ -15,7 +14,6 @@ int main()
         if((a=showLoginMenu(&k))==1)
             k->showMenu();
     } while(a!=0);
-    delete k;
     return 0;
 }
 

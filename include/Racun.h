@@ -29,7 +29,6 @@ class Racun
     private:
         Proizvod niz[50];
         int n;
-
         Kupac k;
         Radnik r;
 

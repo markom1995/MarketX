@@ -8,16 +8,14 @@
 class Administrator : public Korisnik
 {
     friend std::ostream& operator<<(std::ostream& out , const Administrator& src);
+
     public:
 
         Administrator(int=0 , std::string="?" , std::string="?" , std::string="?");
-        virtual ~Administrator();
+        virtual ~Administrator() {};
 
-        bool newData();
-        void login();
         virtual void showMenu();
-        virtual void addNew();
-
+        virtual bool modify() override;
     protected:
     private:
 };

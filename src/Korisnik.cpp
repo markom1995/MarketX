@@ -7,20 +7,6 @@
 Korisnik::Korisnik(int id , std::string password , std::string name , std::string last ) :
     id(id) , password(password) , name(name) , last(last) {}
 
-Korisnik::~Korisnik() {}
-
-int Korisnik::getId() const
-{
-    return id;
-}
-void Korisnik::setMe(int i)
-{
-    id = i;
-    std::cout<<"    Lozinka: "; std::cin>>password;
-    std::cout<<"    Ime: "; std::cin>>name;
-    std::cout<<"    Prezime: "; std::cin>>last;
-}
-
 bool Korisnik::findId(int key , int&pos , const std::string& fileName)
 {
     std::ifstream src;
@@ -35,17 +21,19 @@ bool Korisnik::findId(int key , int&pos , const std::string& fileName)
             {
                 if(n == key)
                 {
-                    pos = src.tellg();
+                    pos = src.tellg();              // Odredjuje poziciju passworda
                     src.close();
                     return true;
                 }
-                src.seekg(60 , std::ios::cur);
+                src.seekg(60 , std::ios::cur);      // Pomjeraj na sledeci zapis
             }
         }
         src.close();
         return false;
     }
-    std::cout<<"Greska prilikom otvaranja datoteke "<<fileName<<"!"<<std::endl;
+    std::string message = "Greska prilikom otvaranja datoteke" + fileName + "!";
+    int w = (message.length())/2 + 40;
+    std::cout<<std::setw(w)<<message<<std::endl<<std::endl;
     return false;
 }
 bool Korisnik::correctPassword(const std::string& password , int pos , const std::string& fileName)
@@ -56,8 +44,8 @@ bool Korisnik::correctPassword(const std::string& password , int pos , const std
     {
         char pwBuff[20];
         src.seekg(pos , std::ios::beg);
-        src.read(pwBuff , 20);
-        if(pwBuff == password)
+        src.read(pwBuff , 20);              // Upisuje ispravan password u pwBuff (tip char*)
+        if(pwBuff == password)              // Provjera da li je unijeti password ispravan
         {
             src.close();
             return true;
@@ -65,7 +53,9 @@ bool Korisnik::correctPassword(const std::string& password , int pos , const std
             src.close();
             return false;
     }
-    std::cout<<"Greska prilikom otvaranja datoteke "<<fileName<<"!"<<std::endl;
+    std::string message = "Greska prilikom otvaranja datoteke" + fileName + "!";
+    int w = (message.length())/2 + 40;
+    std::cout<<std::setw(w)<<message<<std::endl<<std::endl;
     return false;
 }
 bool Korisnik::login(const std::string& fileName)
@@ -86,7 +76,7 @@ bool Korisnik::login(const std::string& fileName)
             std::cout<<std::endl;
             return false;
         }
-        if(!(ok=findId(i,pos,fileName)))
+        if(!(ok=findId(i,pos,fileName)))            // Provjera da li je ID postojeci
             std::cout<<std::setw(62)<<"Unijeli ste nepostojeci ID , molimo ponovite unos!"<<std::endl<<std::endl;
     }while(!ok);
     do
@@ -95,56 +85,33 @@ bool Korisnik::login(const std::string& fileName)
         std::cin>>pw;
         if(pw=="0")
             return false;
-        if(!(ok=correctPassword(pw,pos,fileName)))
+        if(!(ok=correctPassword(pw,pos,fileName)))  // Provjera ispravnosti lozinke
             std::cout<<std::setw(64)<<"Unijeli ste pogresnu lozinku , molimo ponovite unos!"<<std::endl<<std::endl;
     }while(!ok);
     std::ifstream src;
     src.open(fileName , std::ios::in | std::ios::binary);
     if(src.is_open())
     {
-        src.seekg(pos+20,std::ios::beg);
+        src.seekg(pos+20,std::ios::beg);            // Blok ucitavanja u buffere
         src.read(nameBuff , 20);
         src.read(lastBuff , 20);
         src.close();
     }
     else
         return false;
-    id = i;
+    id = i;                                         // Postavljanje vrijednosti
     password = pw;
     name = nameBuff;
     last = lastBuff;
     return true;
 }
-
-void Korisnik::writeToFile(std::ofstream& dest) const
-{
-    if(dest.is_open())
-    {
-        dest.write((char*)&id , sizeof(int));
-        dest.write(password.c_str() , 20);
-        dest.write(name.c_str() , 20);
-        dest.write(last.c_str() , 20);
-    }
-}
-bool Korisnik::readFromFile(std::ifstream& src)
-{
-    char nameBuff[20] , lastBuff[20] , pwBuff[20];
-    if(src.is_open())
-    {
-        src.read((char*)&id , sizeof(int));
-        src.read(pwBuff , 20);
-        src.read(nameBuff , 20);
-        src.read(lastBuff , 20);
-        password = pwBuff;
-        name = nameBuff;
-        last = lastBuff;
-        return true;
-    }
-    return false;
-}
-
 int showLoginMenu(Korisnik** k)
 {
+    if(*k != nullptr)
+    {
+        delete *k;
+        *k = nullptr;
+    }
     char c;
     std::cout<<std::setw(70)<<"************************************************************"<<std::endl<<std::endl;
     std::cout.fill(' ');
@@ -178,22 +145,100 @@ int showLoginMenu(Korisnik** k)
         *k=new Radnik;
         (*k)->getList(myList,"articleData.dat");
         (*k)->viewData(myList);
+        return 2;
     }
     else
         return 0;
+}
+
+int Korisnik::getId() const
+{
+    return id;
+}
+void Korisnik::setMe(int i)
+{
+    id = i;
+    std::cout<<std::setw(25)<<"Lozinka: "; std::cin>>password;
+    std::cout<<std::setw(21)<<"Ime: "; std::cin>>name;
+    std::cout<<std::setw(25)<<"Prezime: "; std::cin>>last;
+}
+bool Korisnik::modify()
+{
+    int c;
+        std::cout<<std::endl<<std::setw(58)<<"Izaberite jednu od ponudjenih opcija"<<std::endl<<std::endl;
+        std::cout<<std::setw(50)<<"[1] - Izmjena imena"<<std::endl;
+        std::cout<<std::setw(54)<<"[2] - Izmjena prezimena"<<std::endl;
+        std::cout<<std::setw(54)<<"[3] - Izmjena passworda"<<std::endl;
+        std::cout<<std::setw(41)<<"[0] - Kraj"<<std::endl;
+        std::cin>>c;
+        if(c==1)
+        {
+            std::cout<<std::setw(22)<<"Novo ime: ";
+            std::cin>>name;
+            return true;
+        }
+        else if(c==2)
+        {
+            std::cout<<std::setw(26)<<"Novo prezime: ";
+            std::cin>>last;
+            return true;
+        }
+        else if(c==3)
+        {
+            std::cout<<std::setw(26)<<"Nova lozinka: ";
+            std::cin>>password;
+            return true;
+        }
+        else if(c!=0)
+        {
+            std::cout<<std::setw(49)<<"Nepoznata opcija!"<<std::endl<<std::endl;
+            return true;
+        }
+        else
+            return false;
+}
+bool Korisnik::writeToFile(std::ofstream& dest) const           // Fajl mora biti otvoren prije ulaska u funkciju
+{
+    if(dest.is_open())
+    {
+        dest.write((char*)&id , sizeof(int));
+        dest.write(password.c_str() , 20);
+        dest.write(name.c_str() , 20);
+        dest.write(last.c_str() , 20);
+        return true;
+    }
+    return false;
+}
+bool Korisnik::readFromFile(std::ifstream& src)                 // Fajl mora biti otvoren prije ulaska u funkciju
+{
+    char nameBuff[20] , lastBuff[20] , pwBuff[20];
+    if(src.is_open())
+    {
+        src.read((char*)&id , sizeof(int));
+        src.read(pwBuff , 20);
+        src.read(nameBuff , 20);
+        src.read(lastBuff , 20);
+        password = pwBuff;
+        name = nameBuff;
+        last = lastBuff;
+        return true;
+    }
+    return false;
+}
+
+void Korisnik::header() const
+{
+    std::cout<<std::endl<<std::setw(74)<<"===== ==================== ==================== ===================="<<std::endl;
+    std::cout<<std::setw(74)<<"   ID              PREZIME                  IME              LOZINKA"<<std::endl;
+    std::cout<<std::setw(74)<<"===== ==================== ==================== ===================="<<std::endl;
+}
+void Korisnik::footer() const
+{
+    std::cout<<std::setw(74)<<"===== ==================== ==================== ===================="<<std::endl<<std::endl;
 }
 
 bool Korisnik::operator<(const Korisnik& other) const
 {
     return id<other.getId();
 }
-void Korisnik::header() const
-{
-    std::cout<<"===== ==================== ==================== ===================="<<std::endl;
-    std::cout<<"   ID              PREZIME                  IME              LOZINKA"<<std::endl;
-    std::cout<<"===== ==================== ==================== ===================="<<std::endl;
-}
-void Korisnik::footer() const
-{
-    std::cout<<"===== ==================== ==================== ===================="<<std::endl;
-}
+

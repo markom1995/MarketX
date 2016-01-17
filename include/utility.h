@@ -5,11 +5,6 @@
 #include <fstream>
 #include <list>
 
-int getIdFromFile(const std::string&);
-bool setIdToFile(const std::string& , int);
-
-
-
 template <class T>
 bool writeList(std::list<T>& src,const std::string& fileName)
 {
@@ -25,15 +20,14 @@ bool writeList(std::list<T>& src,const std::string& fileName)
     return false;
 }
 template <class T>
-bool goodId(std::list<T>& src , int id , typename std::list<T>::iterator& i)
+bool goodId(std::list<T>& src , int id , typename std::list<T>::iterator& dest)
 {
     for(typename std::list<T>::iterator it = src.begin() ; it!=src.end() ; ++it)
             if (it->getId() == id)
             {
-                i = it;
+                dest = it;
                 return false;
             }
     return true;
 }
-
 #endif // UTILITY_H_INCLUDED
