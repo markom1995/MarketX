@@ -38,6 +38,7 @@
 		<Unit filename="include/Korisnik.h" />
 		<Unit filename="include/Kupac.h" />
 		<Unit filename="include/Proizvod.h" />
+		<Unit filename="include/Racun.h" />
 		<Unit filename="include/Radnik.h" />
 		<Unit filename="include/utility.h" />
 		<Unit filename="main.cpp" />
@@ -45,6 +46,7 @@
 		<Unit filename="src/Korisnik.cpp" />
 		<Unit filename="src/Kupac.cpp" />
 		<Unit filename="src/Proizvod.cpp" />
+		<Unit filename="src/Racun.cpp" />
 		<Unit filename="src/Radnik.cpp" />
 		<Unit filename="src/utility.cpp" />
 		<Extensions>

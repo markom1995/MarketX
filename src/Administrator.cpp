@@ -5,6 +5,10 @@ Administrator::Administrator(int id , std::string password , std::string name , 
     Korisnik::Korisnik(id , password , name , last)
 {}
 
+Administrator::~Administrator() {}
+
+void Administrator::login() {}
+
 void Administrator::showMenu()
 {
     char c;
@@ -31,30 +35,20 @@ void Administrator::showMenu()
             showEditMenu(myList,"radnikData.dat");
         }
         else if(c=='0')
-            std::cout<<std::endl<<std::setw(50)<<"*** Prijatan dan ***"<<std::endl<<std::endl;
+        {
+            std::cout<<"*** Prijatan dan ***"<<std::endl;
+        }
         else if(c!='0')
-            std::cout<<std::setw(48)<<"Nepoznata opcija!"<<std::endl<<std::endl;
+            std::cout<<"Nepoznata opcija"<<std::endl;
 
     } while(c!='0');
 }
 
 std::ostream& operator<<(std::ostream& out , const Administrator& src)
 {
-    out<<"      "<<std::setfill('0')<<std::setw(5)<<src.id<<" ";
+    out<<std::setfill('0')<<std::setw(5)<<src.id<<" ";
     std::cout.fill(' ');
     out<<std::setw(20)<<src.last<<" "<<std::setw(20)<<src.name<<" "<<std::setw(20)<<src.password;
     return out;
 }
-
-bool Administrator::modify()
-{
-    do
-    {
-    std::cout<<std::endl;
-    header();
-    std::cout<<*this<<std::endl;
-    footer();
-    std::cout<<std::endl;
-    }while(Korisnik::modify());
-    return true;
-}
+void Administrator::addNew() {}

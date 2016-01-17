@@ -4,16 +4,18 @@
 #include "Korisnik.h"
 #include "utility.h"
 
+
 class Radnik : public Korisnik
 {
     friend std::ostream& operator<<(std::ostream& out , const Radnik& src);
-
     public:
         Radnik(int=0 , std::string="?" , std::string="?" , std::string="?");
-        virtual ~Radnik() {};
 
+
+        virtual ~Radnik();
+        void login();
+        void printName(std::ostream&) const;
         virtual void showMenu();
-        virtual bool modify();
     protected:
     private:
 };

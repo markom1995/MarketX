@@ -19,19 +19,18 @@ class Korisnik
     public:
 
         Korisnik(int=0 , std::string="?" , std::string="?" , std::string="?");
-        virtual ~Korisnik() {};
+        virtual ~Korisnik();
 
-        bool login(const std::string&);                     // Prijava na sistem (podaci u fajlu ciji je naziv argument funkcije)
+        int getId() const;
+        bool login(const std::string&);
 
-        int getId() const;                                  // & Getter za ID
-        void setMe(int);                                    // $ Pravljenje novog
-        virtual bool modify();
-
-        bool writeToFile(std::ofstream& ) const;            // $ Upis jednog u fajl
+        void writeToFile(std::ofstream& ) const;            // $ Upis jednog u fajl
         bool readFromFile(std::ifstream& );                 // $ Citanje jednog iz fajla
 
         void header() const;                                // $ Pisanje header - a
         void footer() const;                                // $ Pisanje footer - a
+
+        void setMe(int);                                    // $ Pravljenje novog
         bool operator<(const Korisnik& other) const;        // $ Operator poredjenja
 
         virtual void showMenu() = 0;                        // Prikazuje meni
@@ -41,7 +40,6 @@ class Korisnik
         template<class T> void addData(std::list<T>&);                              // Dodavanje novog u listu
         template<class T> void viewData(std::list<T>&);                             // Pregled svih
         template<class T> void deleteData(std::list<T>&);                           // Brisanje jednog
-        template<class T> void modifyData(std::list<T>&);                           // Promjena jednog
 
     protected:
         int id;
@@ -49,7 +47,7 @@ class Korisnik
         std::string name , last;
 
     private :
-        bool findId(int , int& , const std::string&);                               // Pretrazuje ID u datoteci
+        bool findId(int , int& , const std::string&);                               // Pretrazuje ID u listi
         bool correctPassword(const std::string& , int , const std::string&);        // Provjera da li je lozinka ispravna
 };
 
@@ -88,18 +86,17 @@ template<class T>
 void Korisnik::deleteData(std::list<T>& myList)
 {
         int key;
-        std::cout<<std::setw(50)<<"Unesite ID / Sifru po kojoj brisete: ";
+        std::cout<<"Unesite ID / Sifru po kojoj brisete: ";
         std::cin>>key;
         for(typename std::list<T>::iterator it = myList.begin() ; it != myList.end() ; ++it)
         {
             if(it->getId() == key)
             {
                 myList.erase(it);       // Brise element na koji pokazuje iterator it
-                std::cout<<std::endl<<std::setw(49)<<"Brisanje uspjesno!"<<std::endl<<std::endl;
                 return;
             }
         }
-        std::cout<<std::endl<<std::setw(49)<<"Pogresno unesen ID!"<<std::endl<<std::endl;
+        std::cout<<"Pogresno unesen ID!"<<std::endl;
 }
 
 template<class T>
@@ -109,30 +106,23 @@ void Korisnik::addData(std::list<T>& myList)
     T temp;
     int i;
     bool ok;
-    typename std::list<T>::iterator dest;
-    std::cout<<std::setw(28)<<"Unesite podatke:"<<std::endl<<std::endl;
+    typename std::list<T>::iterator ii;
+    std::cout<<std::setw(28)<<"Unesite podatke:"<<std::endl;
     do
     {
         std::cout<<std::setw(28)<<"ID / Sifra: ";
         std::cin>>i;
-        if(!(ok = goodId(myList,i,dest)) || !(ok=(i!=0)))
-        {
-            std::cout<<std::endl<<std::setw(70)<<"Unijeli ste nedozvoljen ID / Sifru , molimo ponovite unos!"<<std::endl<<std::endl;
-        }
+        if(!(ok = goodId(myList,i,ii)))
+            std::cout<<std::endl<<std::setw(68)<<"Unijeli ste postojeci ID / Sifru , molimo ponovite unos!"<<std::endl<<std::endl;
     } while(!ok) ;
-
     temp.setMe(i);              // Pravljenje novog objekta klase T
-    std::cout<<std::endl<<std::setw(60)<<"Potvrdite dodavanje [1] , Odustanite [ostalo] ? ";
+    std::cout<<"Potvrdite dodavanje [1] , Odustanite [ostalo] ?";
     std::cin>>c;
     if(c=='1')
-    {
         myList.push_back(temp);
-        std::cout<<std::endl<<std::setw(52)<<"Uspjesno dodavanje novog!"<<std::endl<<std::endl;
-    }
     else
-        std::cout<<std::endl<<std::setw(50)<<"Dodavanje ponisteno!"<<std::endl<<std::endl;
+        std::cout<<"Dodavanje prekinuto!"<<std::endl;
 }
-
 template<class T>
 void Korisnik::showEditMenu(std::list<T>& myList , const std::string& fileName)
 {
@@ -143,7 +133,6 @@ void Korisnik::showEditMenu(std::list<T>& myList , const std::string& fileName)
             std::cout<<std::setw(51)<<"[1] - Dodavanje novog"<<std::endl;
             std::cout<<std::setw(48)<<"[2] - Pregled svih"<<std::endl;
             std::cout<<std::setw(51)<<"[3] - Brisanje jednog"<<std::endl;
-            std::cout<<std::setw(50)<<"[4] - Izmjena jednog"<<std::endl;
             std::cout<<std::setw(40)<<"[0] - Kraj"<<std::endl<<std::endl;
             std::cin>>c;
         if(c=='1')
@@ -158,45 +147,16 @@ void Korisnik::showEditMenu(std::list<T>& myList , const std::string& fileName)
         {
             deleteData(myList);
         }
-        else if(c=='4')
-            modifyData(myList);
         else if(c=='0')
         {
             if(writeList(myList , fileName))
-            {
-                std::string message = "Uspjesno azuriranje datoteke " + fileName + "!";
-                int w = (message.length())/2 + 40;
-                std::cout<<std::setw(w)<<message<<std::endl;
-            }
+                std::cout<<"Uspjesno azuriranje datoteke "<<fileName<<" !"<<std::endl;
             else
-            {
-                std::string message = "Greska prilikom otvaranja datoteke " + fileName + "!";
-                int w = (message.length())/2 + 40;
-                std::cout<<std::setw(w)<<message<<std::endl;
-            }
+                std::cout<<"Greska prilikom otvaranja datoteke "<<fileName<<" !"<<std::endl;
         }
         else if(c!='0')
-            std::cout<<std::setw(48)<<"Nepoznata opcija!"<<std::endl<<std::endl;
+            std::cout<<"Nepoznata opcija"<<std::endl;
         } while(c!='0');
 }
 
-template<class T>
-void Korisnik::modifyData(std::list<T>& myList)
-{
-    int i;
-    bool ok;
-    typename std::list<T>::iterator dest;
-    std::cout<<std::setw(63)<<"*** Za odustajanje od izmjene unesite ID 0 ***"<<std::endl<<std::endl;
-    do
-    {
-        std::cout<<std::setw(32)<<"Unesite ID / Sifru: ";
-        std::cin>>i;
-        if((ok = goodId(myList , i , dest)))
-            std::cout<<std::endl<<std::setw(66)<<"Unijeli ste nepostojeci ID / Sifru , ponovite unos!"<<std::endl<<std::endl;
-    } while(ok && i!=0);
-    if(i!=0)
-    {
-        dest->modify();
-    }
-}
 #endif // KORISNIK_H
