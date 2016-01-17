@@ -45,3 +45,16 @@ std::ostream& operator<<(std::ostream& out , const Radnik& src)
     out<<std::setw(20)<<src.last<<" "<<std::setw(20)<<src.name<<" "<<std::setw(20)<<src.password;
     return out;
 }
+
+bool Radnik::modify()
+{
+    do
+    {
+    std::cout<<std::endl;
+    header();
+    std::cout<<*this<<std::endl;
+    footer();
+    std::cout<<std::endl;
+    }while(Korisnik::modify());
+    return true;
+}

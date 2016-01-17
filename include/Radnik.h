@@ -13,6 +13,7 @@ class Radnik : public Korisnik
         virtual ~Radnik() {};
 
         virtual void showMenu();
+        virtual bool modify();
     protected:
     private:
 };

@@ -15,7 +15,7 @@ class Administrator : public Korisnik
         virtual ~Administrator() {};
 
         virtual void showMenu();
-
+        virtual bool modify() override;
     protected:
     private:
 };

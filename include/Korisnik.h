@@ -25,7 +25,7 @@ class Korisnik
 
         int getId() const;                                  // & Getter za ID
         void setMe(int);                                    // $ Pravljenje novog
-        void modify();
+        virtual bool modify();
 
         bool writeToFile(std::ofstream& ) const;            // $ Upis jednog u fajl
         bool readFromFile(std::ifstream& );                 // $ Citanje jednog iz fajla
@@ -186,14 +186,17 @@ void Korisnik::modifyData(std::list<T>& myList)
     int i;
     bool ok;
     typename std::list<T>::iterator dest;
+    std::cout<<std::setw(63)<<"*** Za odustajanje od izmjene unesite ID 0 ***"<<std::endl<<std::endl;
     do
     {
-        std::cout<<"Unesite ID / Sifru: ";
+        std::cout<<std::setw(32)<<"Unesite ID / Sifru: ";
         std::cin>>i;
         if((ok = goodId(myList , i , dest)))
-            std::cout<<"Unijeli ste nepostojeci ID / Sifru , ponovite unos!"<<std::endl;
+            std::cout<<std::endl<<std::setw(66)<<"Unijeli ste nepostojeci ID / Sifru , ponovite unos!"<<std::endl<<std::endl;
     } while(ok && i!=0);
     if(i!=0)
+    {
         dest->modify();
+    }
 }
 #endif // KORISNIK_H

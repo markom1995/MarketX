@@ -31,7 +31,9 @@ bool Korisnik::findId(int key , int&pos , const std::string& fileName)
         src.close();
         return false;
     }
-    std::cout<<"Greska prilikom otvaranja datoteke "<<fileName<<"!"<<std::endl;
+    std::string message = "Greska prilikom otvaranja datoteke" + fileName + "!";
+    int w = (message.length())/2 + 40;
+    std::cout<<std::setw(w)<<message<<std::endl<<std::endl;
     return false;
 }
 bool Korisnik::correctPassword(const std::string& password , int pos , const std::string& fileName)
@@ -51,7 +53,9 @@ bool Korisnik::correctPassword(const std::string& password , int pos , const std
             src.close();
             return false;
     }
-    std::cout<<"Greska prilikom otvaranja datoteke "<<fileName<<"!"<<std::endl;
+    std::string message = "Greska prilikom otvaranja datoteke" + fileName + "!";
+    int w = (message.length())/2 + 40;
+    std::cout<<std::setw(w)<<message<<std::endl<<std::endl;
     return false;
 }
 bool Korisnik::login(const std::string& fileName)
@@ -158,35 +162,40 @@ void Korisnik::setMe(int i)
     std::cout<<std::setw(21)<<"Ime: "; std::cin>>name;
     std::cout<<std::setw(25)<<"Prezime: "; std::cin>>last;
 }
-void Korisnik::modify()
+bool Korisnik::modify()
 {
-    char c;
-    do
-    {
-        std::cout<<"Izaberite jednu od ponudjenih opcija"<<std::endl<<std::endl;
-        std::cout<<"[1] - Izmjena imena"<<std::endl;
-        std::cout<<"[2] - Izmjena prezimena"<<std::endl;
-        std::cout<<"[3] - Izmjena passworda"<<std::endl;
-        std::cout<<"[0] - Kraj"<<std::endl;
+    int c;
+        std::cout<<std::endl<<std::setw(58)<<"Izaberite jednu od ponudjenih opcija"<<std::endl<<std::endl;
+        std::cout<<std::setw(50)<<"[1] - Izmjena imena"<<std::endl;
+        std::cout<<std::setw(54)<<"[2] - Izmjena prezimena"<<std::endl;
+        std::cout<<std::setw(54)<<"[3] - Izmjena passworda"<<std::endl;
+        std::cout<<std::setw(41)<<"[0] - Kraj"<<std::endl;
         std::cin>>c;
-        if(c=='1')
+        if(c==1)
         {
-            std::cout<<"Novo ime: ";
+            std::cout<<std::setw(22)<<"Novo ime: ";
             std::cin>>name;
+            return true;
         }
-        else if(c=='2')
+        else if(c==2)
         {
-            std::cout<<"Novo prezime: ";
+            std::cout<<std::setw(26)<<"Novo prezime: ";
             std::cin>>last;
+            return true;
         }
-        else if(c=='3')
+        else if(c==3)
         {
-            std::cout<<"Nova lozinka: ";
+            std::cout<<std::setw(26)<<"Nova lozinka: ";
             std::cin>>password;
+            return true;
         }
-        else if(c!='0')
-            std::cout<<"Nepoznata opcija!";
-    } while(c!='0');
+        else if(c!=0)
+        {
+            std::cout<<std::setw(49)<<"Nepoznata opcija!"<<std::endl<<std::endl;
+            return true;
+        }
+        else
+            return false;
 }
 bool Korisnik::writeToFile(std::ofstream& dest) const           // Fajl mora biti otvoren prije ulaska u funkciju
 {

@@ -513,3 +513,74 @@
 1453033236 source:c:\users\zm\desktop\market\marketx-master\src\utility.cpp
 	"utility.h"
 
+1453032692 source:c:\users\zm\desktop\marketx\main.cpp
+	"Administrator.h"
+	"Radnik.h"
+	"Proizvod.h"
+
+1453045163 c:\users\zm\desktop\marketx\include\administrator.h
+	"Korisnik.h"
+	"utility.h"
+	"Radnik.h"
+
+1453045163 c:\users\zm\desktop\marketx\include\korisnik.h
+	<iostream>
+	<iomanip>
+	<string>
+	<fstream>
+	<list>
+	"utility.h"
+
+1453033238 c:\users\zm\desktop\marketx\include\utility.h
+	<iostream>
+	<string>
+	<fstream>
+	<list>
+
+1453045297 c:\users\zm\desktop\marketx\include\radnik.h
+	"Korisnik.h"
+	"utility.h"
+
+1453047037 c:\users\zm\desktop\marketx\include\proizvod.h
+	<iostream>
+	<iomanip>
+	<string>
+	<fstream>
+	<list>
+	"utility.h"
+
+1453046455 source:c:\users\zm\desktop\marketx\src\administrator.cpp
+	"Administrator.h"
+	"Radnik.h"
+
+1453047037 source:c:\users\zm\desktop\marketx\src\korisnik.cpp
+	"Korisnik.h"
+	"Administrator.h"
+	"Radnik.h"
+	"Proizvod.h"
+	<cstdlib>
+
+1453048185 source:c:\users\zm\desktop\marketx\src\kupac.cpp
+	"Kupac.h"
+	<cstdlib>
+
+1453036106 c:\users\zm\desktop\marketx\include\kupac.h
+	<iostream>
+	<iomanip>
+	<string>
+	<fstream>
+	<list>
+	"utility.h"
+
+1453043862 source:c:\users\zm\desktop\marketx\src\proizvod.cpp
+	"Proizvod.h"
+	<cstdlib>
+
+1453045297 source:c:\users\zm\desktop\marketx\src\radnik.cpp
+	"Radnik.h"
+	"Proizvod.h"
+	"Kupac.h"
+
+1453033238 source:c:\users\zm\desktop\marketx\src\utility.cpp
+	"utility.h"
+

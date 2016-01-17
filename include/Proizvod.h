@@ -14,7 +14,7 @@ class Proizvod
 
     public:
         Proizvod(int=0 , std::string="?" , double=0 , double=0);
-        virtual ~Proizvod() {};
+        ~Proizvod() {};
 
         int getId() const;
         void setMe(int);
